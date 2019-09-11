@@ -11,13 +11,13 @@
 
 <script>
 import HelloWorld from '@/components/HelloWorld.vue'
-import TopNav from '@/components/Base/TopNav.vue'
+// import TopNav from '@/components/Base/TopNav.vue' 
 
 export default {
   name: 'about',
   components: {
     HelloWorld,
-    TopNav
+    // TopNav //注册局部组件
   }
 }
 </script>
