@@ -30,4 +30,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 # 效果图
-![Image text](https://raw.githubusercontent.com/iWebHome/tlvue3study/vue3-cli-2.3/pictures/2.3.png)
+![Image text](https://raw.githubusercontent.com/iWebHome/tlvue3study/vue3-cli-2.3/pictures/2.4.png)
