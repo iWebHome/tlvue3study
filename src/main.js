@@ -5,11 +5,6 @@ import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
-// 方式一：
-// import TopNav from '@/components/Base/TopNav.vue'
-// Vue.component('TopNav', TopNav)// 注册全局组件
-
-// 方式二：
 /* requireComponent 包含基础模块的文件集合 */
 const requireComponent = require.context(
   /* 在 ./components/Base 文件夹中寻找基础模块 */

@@ -1,7 +1,7 @@
 <template>
-  <div class="topnav">
+  <span class="topnav" @click="click">
     {{title}}
-  </div>
+  </span>
 </template>
 
 <script>
@@ -12,6 +12,17 @@ export default {
     return {
       text: '导航条'
     }
+  },
+  methods: {
+    click: function () {
+      this.$emit('click-event', '点击')
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+span { 
+  margin: 0 5px; 
+}
+</style>
