@@ -21,6 +21,8 @@
 
 <script>
 
+import axios from 'axios'
+
 export default {
   name: 'home',
   data: function () {
@@ -37,18 +39,49 @@ export default {
     }
   },
   created: function () {
-    fetch('https://www.apiopen.top/journalismApi')
-    .then(v=>v.json())
-    .then(v=>{
-      this.navs = v.data
-      this.tts = v.data.toutiao
-      console.log(this.navs)
-      Reflect.ownKeys(v.data).forEach((key, index) => {
-        this.navs[key] = {
-          active: key === 'toutiao',
-          data: this.navs[key]
-        }
-      })
+    let url = 'https://www.apiopen.top/journalismApi'
+
+    // fetch(url)
+    // .then(v=>v.json())
+    // .then(v=>{
+    //   this.navs = v.data
+    //   this.tts = v.data.toutiao
+    //   console.log(this.navs)
+    //   Reflect.ownKeys(v.data).forEach((key, index) => {
+    //     this.navs[key] = {
+    //       active: key === 'toutiao',
+    //       data: this.navs[key]
+    //     }
+    //   })
+    // })
+
+    
+    // axios.get(url).then((res) => {
+    //   this.navs = res.data
+    //   this.tts = res.data.toutiao
+    //   // console.log(this.navs)
+    //   Reflect.ownKeys(res.data).forEach((key, index) => {
+    //     this.navs[key] = {
+    //       active: key === 'toutiao',
+    //       data: this.navs[key]
+    //     }
+    //   })
+    // })
+
+    this.$api.get(url, {}, response => {
+      if (response.status >= 200 && response.status < 300) {
+        this.navs = response.data.data
+        this.tts = response.data.data.toutiao
+        console.log(this.navs)
+        Reflect.ownKeys(response.data.data).forEach((key, index) => {
+          this.navs[key] = {
+            active: key === 'toutiao',
+            data: this.navs[key]
+          }
+        })
+      } else {
+        console.log(response.msg);
+      }
     })
   }
 }

@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+import Api from './api/index.js'
 
 /* requireComponent 包含基础模块的文件集合 */
 const requireComponent = require.context(
@@ -34,6 +35,7 @@ requireComponent.keys().forEach(fileName => {
 })
 
 Vue.config.productionTip = false
+Vue.prototype.$api = Api
 
 new Vue({
   router,
